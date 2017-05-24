@@ -1,0 +1,197 @@
+* {
+	position: relative;
+}
+
+.orange-box {
+	width: 100px;
+	height: 100px;
+	background-color: orange;
+}
+
+#with-border {
+	border-left: 10px solid blue;
+	border-right: 10px solid blue;
+	box-sizing: border-box;
+}
+
+.rounded-corners {
+	border: 1px solid black;
+	border-radius: 0 10px 0 10px;
+	padding: 5px;
+	text-align: center;
+}
+
+.pink-circle {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: pink;
+	display: table;
+}
+
+.centered-text {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.wide-box {
+	height: 100px;
+	width: 400px;
+	border: 1px solid black;
+	display: table;
+}
+
+#flower-box {
+	background-image: url("images/flowerborder.jpg");
+	background-size: contain;
+	background-position: left bottom;
+	background-repeat: no-repeat;
+}
+
+#summer-box {
+	text-align: center;
+}
+
+.sun {
+	height: 60%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.tree {
+	height: 60%;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.dog-circle {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-image: url("images/dog.jpg");
+	background-size: contain;
+	display: table-cell;
+}
+
+.woof {
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 5px;
+}
+
+.tall-box {
+	width: 400px;
+	border: 1px solid black;
+	text-align: center;
+}
+
+.little-red {
+	width: 50px;
+}
+
+.salmon-box {
+	background-color: salmon;
+	padding: 10px;
+	margin: 0 5px 5px;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center; 
+	padding: 10px 20px;
+}
+
+th {
+	background-color: black;
+	color: white;
+}
+
+.flag-box {
+	width: 350px;
+	height: 200px;
+	border-left: 1px solid grey;
+}
+
+.flag-top {
+	position: absolute;
+	width: 350px;
+	height: 100px;
+	top: 0;
+	background-color: #0038a8;
+	z-index: 1;
+}
+
+.flag-bottom {
+	position: absolute;
+	width: 350px;
+	height: 100px;
+	bottom: 0;
+	background-color: #ce1126;
+	z-index: 1;
+}
+
+.flag-triangle {
+	position: absolute;
+	width: 150px;
+	height: 200px;
+	top: 0;
+	clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
+	background-color: white;
+	z-index: 2;
+}
+
+.flag-sun {
+	position: absolute;
+	height: 90px;
+	width: 90px;
+	top: 50px;
+	left: 5px;
+}
+
+.flag-star {
+	position: absolute;
+	height: 25px;
+	width: 25px;
+	clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+	background-color: #fcd116;
+}
+
+#star1 {
+	top: 15px;
+}
+
+#star2 {
+	bottom: 15px;
+}
+
+#star3 {
+	top: 85px;
+	left: 100px;
+}
+
+.box {
+	border: 1px solid black;
+	width: 500px;
+	height: 300px;
+}
+
+.center-me {
+	border: 1px solid black;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.center-me span {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}

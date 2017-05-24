@@ -1,0 +1,57 @@
+* {
+	color: white;
+	font: 16px arial, sans-serif;
+}
+
+body {
+	background-image: url("../images/pattern.png");
+	background-color: grey;
+	margin: 0 auto;
+}
+
+.main-box {
+	margin: 0 300px;
+	background-color: black;
+	opacity: 0.8;
+	padding: 50px 50px 35px;
+	box-shadow: -2px 0 10px 5px grey;
+}
+
+.profile-box {
+	width: 300px;
+	height: 300px;
+	text-align: center;
+	padding: 20px 20px 26px;
+	margin: 20px auto 30px;
+	border: 1px dashed white;
+}
+
+img {
+	border-radius: 5%;
+	width: 150px;
+}
+
+h1 {
+	font: 32px arial, sans-serif;
+	font-weight: bold;
+	color: #3075e5;
+	letter-spacing: 3px;
+}
+
+h2 {
+	font: 24px arial, sans-serif;
+	font-weight: bold;
+	color: #3075e5;
+}
+
+hr {
+	margin: 10px auto 30px;
+}
+
+.highlight {
+	font-weight: bold;
+}
+
+.emphasis {
+	font-style: italic;
+}

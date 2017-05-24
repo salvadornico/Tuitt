@@ -1,0 +1,240 @@
+* {
+	box-sizing: border-box;
+	color: white;
+	position: relative;
+}
+
+.container {
+	background-color: black;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.clear:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.width-700 {
+	width: 700px;
+}
+
+.grey-box {
+	width: 150px;
+	height: 150px;
+	background-color: grey;
+}
+
+.one .grey-box {
+	margin: 10px;
+	float: left;
+}
+
+.two figure {
+	border: 1px solid white;
+	padding: 10px 10px 50px;
+	text-align: center;
+	width: 170px;
+	float: left;
+	margin: 10px;
+}
+
+.two figcaption {
+	position: absolute;
+	bottom: 25px;
+	left: 50%;
+	transform: translate(-50%, 50%);
+}
+
+.three > div {
+	float: left;
+	margin-right: 10px;
+}
+
+.four > div {
+	width: 20%;
+	float: left;
+}
+
+.four article {
+	width: 77%;
+	float: right;
+}
+
+.four p {
+	margin-top: 0;
+	font-style: italic;
+}
+
+.avatar {
+	width: 50px;
+	height: 50px;
+	background-color: grey;
+}
+
+.comment-box-left {
+	float: left;
+	width: 7%;
+	margin: auto 5px;
+}
+
+.comment-box-right {
+	float: right;
+	width: 90%;
+}
+
+.five textarea {
+	width: 100%;
+	color: black;
+}
+
+.five input {
+	float: right;
+	margin-left: 5px;
+}
+
+input {
+	color: black;
+}
+
+.comment-box {
+	margin-bottom: 20px;
+}
+
+.comment-box a {
+	color: blue;
+}
+
+.comment-box-right p {
+	font-style: italic;
+}
+
+.reply-box {
+	margin-left: 7%;
+	border-left: 1px solid white;
+}
+
+.width-500 {
+	width: 500px;
+}
+
+.seven .left {
+	float: left;
+	width: 40%
+}
+
+.ad-box {
+	height: 100px;
+	width: 100%;
+	background-color: grey;
+}
+
+.seven .right {
+	float: right;
+	width: 59%;
+}
+
+.ad-subhead {
+	color: grey;
+	font-size: 14px;
+}
+
+.eight .left {
+	float: left;
+	width: 59%
+}
+
+.eight .right {
+	float: right;
+	width: 40%;
+}
+
+.nine .left {
+	float: left;
+	width: 30%;
+}
+
+.nine h1 {
+	margin: 10px auto;
+}
+
+.nine input {
+	margin-top: 20px;
+}
+
+.nine .right {
+	float: right;
+	width: 69%;
+}
+
+.nine .right .grey-box {
+	float: left;
+	margin: 0 5px 5px 0;
+}
+
+.ten {
+	width: 1000px;
+}
+
+.ten .left {
+	float: left;
+	width: 60%;
+}
+
+.ten figure {
+	border: 1px solid white;
+	padding: 50px 5px 5px;
+	text-align: center;
+	width: 150px;
+	float: left;
+	margin: 10px;
+}
+
+.ten figcaption {
+	position: absolute;
+	top: 25px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.ten .grey-box {
+	width: 100%;
+	height: 100px; /*REVIEW*/
+}
+
+.ten .right {
+	float: right;
+	width: 40%;
+}
+
+.ten > .right > div {
+	width: 100%;
+	height: 200px;
+	background-color: grey;
+}
+
+.ten a {
+	text-decoration: none;
+	background-color: grey;
+	margin: 20px 5px;
+	display: inline-block;
+}
+
+.ten h1 {
+	font-size: 32px;
+	margin-bottom: 5px;
+}
+
+.ten p {
+	font-size: 14px;
+	font-style: italic;
+}
+
+.ten > .right > article > div {
+	width: 150px;
+	height: 100px;
+	margin-right: 5px;
+	background-color: grey;
+	float: left;
+}

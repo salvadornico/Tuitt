@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<title>CSS Demo</title>
+
+		<style type="text/css">
+
+			hr {
+				margin: 30px;
+			}
+
+			div, p, h1 {
+				border: 1px solid black;
+				padding: 5px;
+			}
+
+			div {
+				border-width: 3px;
+			}
+
+			div + p {
+				background: green;
+			}
+
+			div + p ~ h1 {
+				background: yellow;
+			}
+
+			div ~ p {
+				background: maroon;
+			}
+
+			div p {
+				background: darkblue;
+			}
+
+			.target > span > p {
+				background: orange;
+			}
+
+			ul li {
+				display: inline-block;
+				background-color: red;
+				width: 100px;
+				margin: 5px;
+				padding-left: 30px;
+			}
+
+			li:hover {
+				width: 150px;
+				font-size: 2em;
+			}
+
+			input {
+				margin-left: 30px;
+			}
+
+			input:focus {
+				font-size: 50px;
+			}
+
+			a:active {
+				color: green;
+				font-size: 20px;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<ul>
+			<li>Bacon</li>
+			<li>Spam</li>
+			<li>Eggs</li>
+		</ul>
+
+		<input type="text" placeholder="Hi"></input>
+		<br>
+		<a href="#">Linklinklinklink</a>
+
+		<hr>
+
+		<div class="target">
+			<p>Paragraph 1 in the div</p>
+			<p>Paragraph 2 in the div</p>
+			<span><p>Paragraph 3, in the span in the div</p></span>
+		</div>
+
+		<p>Paragraph 4, not in the div, but next to it</p>
+		<h1>Heading 1</h1>
+		<h1>Heading 2</h1>
+		<p>Paragraph 5, not in the div</p>
+
+		<hr>
+
+		<div>
+			<p>Paragraph 1 in the div</p>
+			<p>Paragraph 2 in the div</p>
+			<span><p>Paragraph 3, in the span in the div</p></span>
+		</div>
+
+		<p>Paragraph 4, not in the div, but next to it</p>
+		<h1>Heading 1</h1>
+		<h1>Heading 2</h1>
+		<p>Paragraph 5, not in the div</p>
+
+	</body>
+
+</html>

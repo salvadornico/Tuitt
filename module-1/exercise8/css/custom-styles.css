@@ -1,0 +1,87 @@
+.navbar {
+	border-radius: 0;
+}
+
+#top-nav {
+	border: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	background: rgba(255, 255, 255, 0.7);
+}
+
+#top-nav .container-fluid {
+	padding: 0 50px;
+}
+
+#top-nav .navbar-brand {
+	color: black;
+}
+
+#top-nav .navbar-nav > li > a {
+	color: darkgreen;
+}
+
+.jumbotron {
+	height: 50vh;
+	position: relative;
+}
+
+.jumbotron {	
+	background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../images/header.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.carousel-caption {
+	left: 50%;
+	top: 50%;
+	bottom: auto;
+	transform: translate(-50%, -50%);
+	width: 50%;
+}
+
+#mid-nav {
+	position: relative;
+	top: -30px;
+	background-color: darkgreen;
+	border: none;
+	padding: 0 15px;
+	z-index: 5;
+}
+
+#mid-nav .container {
+	padding: 0;
+	margin: 0;
+}
+
+#mid-nav .active > a {
+	background-color: #ffea0a;
+	color: black;
+}
+
+#mid-nav li > a {
+	color: white;
+}
+
+.affix {
+	top: 30px;
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+	#mid-nav {
+		margin-top: -50px;
+		padding: 0;
+	}
+
+	.affix {
+		top: 80px;
+	}
+}
+
+/*Fun shit*/
+#lorem, #bacon, #cupcake {
+	margin-bottom: 100px;
+}

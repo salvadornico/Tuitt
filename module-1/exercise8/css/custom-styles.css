@@ -11,9 +11,6 @@
 	background: rgba(255, 255, 255, 0.7);
 }
 
-#top-nav .container-fluid {
-	padding: 0 50px;
-}
 
 #top-nav .navbar-brand {
 	color: black;
@@ -82,6 +79,10 @@
 }
 
 /*Fun shit*/
+#test {
+	margin-top: -50px;
+}
+
 #lorem, #bacon, #cupcake {
 	margin-bottom: 100px;
 }

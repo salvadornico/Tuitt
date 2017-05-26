@@ -1,4 +1,4 @@
-nav {
+#side-nav {
   	z-index: 2;
   	padding-top: 40px;
   	padding-bottom: 40px;
@@ -6,7 +6,7 @@ nav {
   	padding-right: 20%;
 }
 
-nav ul {
+#side-nav ul {
 	margin-top: 50px;
 }
 
@@ -26,10 +26,6 @@ nav ul {
 	z-index: 1;
 }
 
-#map > img {
-	/*min-width: 300px;*/
-}
-
 
 /*------------- Responsive tweaks ------------------*/
 @media screen and (min-width: 576px) {
@@ -45,7 +41,7 @@ nav ul {
 		margin-top: -40px;
 	}
 
-	nav {
+	#side-nav {
 		float: left;
 		width: 20%;
 		position: absolute;
@@ -59,7 +55,7 @@ nav ul {
 }
 
 @media screen and (min-width: 768px) {
-	nav {
+	#side-nav {
 		width: 30%;
 	}
 }

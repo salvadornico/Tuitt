@@ -20,10 +20,6 @@ h4,
 h5,
 h6 {
 	font-family: 'Francois One', sans-serif;
-} 
-
-body {	
-	background-color: rgb(249, 249, 249);
 }
 
 
@@ -67,6 +63,45 @@ body {
 #top-nav .navbar-toggle:focus,
 #top-nav .active > a {
 	background-color: #ce1126;
+}
+
+
+/* ------------- Club Articles - Body ----------------- */
+body {	
+	background-color: rgb(249, 249, 249);
+}
+
+#main {
+	margin: auto 30px;
+}
+
+.club-banner {
+	max-width: 300px;
+	margin: 30px auto;
+}
+
+.club-banner img {
+	float: left;
+	height: 200px;
+}
+
+.club-banner > div {
+	float: left;
+	margin-left: 30px;
+}
+
+.table > tbody > tr > td  {
+	vertical-align: middle;
+}
+
+@media screen and (min-width: 576px) {
+	.club-banner {
+		max-width: 650px;
+	}
+
+	.club-banner > div {
+		padding-top: 30px;
+	}
 }
 
 

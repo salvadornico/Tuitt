@@ -66,15 +66,21 @@ h6 {
 }
 
 
-/* ------------- Club Articles - Body ----------------- */
+/* ------------- General Body ----------------- */
 body {	
 	background-color: rgb(249, 249, 249);
 }
 
-#main {
+#main1 {
 	margin: 80px 30px auto;
 }
 
+#main2 {
+	margin: auto 30px;
+}
+
+
+/* ------------- Club profiles ----------------- */
 .club-banner {
 	max-width: 300px;
 	margin: 30px auto;
@@ -92,6 +98,14 @@ body {
 
 .table > tbody > tr > td  {
 	vertical-align: middle;
+}
+
+.home-ground {
+    margin: 20px auto;
+}
+
+.club-info ul {
+    list-style: none;
 }
 
 @media screen and (min-width: 576px) {

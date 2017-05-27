@@ -54,6 +54,11 @@ h6 {
 	margin-left: 15px;
 }
 
+#top-nav .navbar-nav > li > a,
+#top-nav .dropdown-menu > li > a {
+    color: #ffffff;
+}
+
 #top-nav .navbar-toggle {
 	margin-top: 20px;
 	border-color: #0038a8;
@@ -61,8 +66,10 @@ h6 {
 
 #top-nav .navbar-toggle:hover,
 #top-nav .navbar-toggle:focus,
-#top-nav .active > a {
+#top-nav .active > a,
+#top-nav a:hover {
 	background-color: #ce1126;
+    color: #ffffff;
 }
 
 
@@ -106,6 +113,7 @@ body {
 
 .club-info ul {
     list-style: none;
+    padding: 0;
 }
 
 @media screen and (min-width: 576px) {

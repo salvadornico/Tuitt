@@ -55,8 +55,10 @@ h6 {
 }
 
 #top-nav .navbar-nav > li > a,
-#top-nav .dropdown-menu > li > a {
+#top-nav .dropdown-menu > li > a,
+#top-nav .dropdown-menu {
     color: #ffffff;
+    background-color: #0038a8;
 }
 
 #top-nav .navbar-toggle {
@@ -67,11 +69,10 @@ h6 {
 #top-nav .navbar-toggle:hover,
 #top-nav .navbar-toggle:focus,
 #top-nav .active > a,
-#top-nav a:hover {
+#top-nav .navbar-nav a:hover {
 	background-color: #ce1126;
     color: #ffffff;
 }
-
 
 /* ------------- General Body ----------------- */
 body {	
@@ -124,6 +125,12 @@ body {
 	.club-banner > div {
 		padding-top: 30px;
 	}
+}
+
+
+/*-------------------- More Info page -------------------*/
+.tab-pane {
+	padding: 20px;
 }
 
 

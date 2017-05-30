@@ -42,7 +42,6 @@ h6 {
 
 #top-nav .navbar-brand {
 	margin-bottom: 40px;
-	display: block;
 }
 
 #top-nav img {
@@ -53,8 +52,7 @@ h6 {
 #top-nav span {
 	font-family: 'Noto Serif', sans-serif;
 	color: #ffffff;		
-	font-size: 32px;
-	margin-left: 15px;
+	font-size: 20px;
 }
 
 #top-nav .navbar-right {
@@ -83,17 +81,24 @@ h6 {
     color: #ffffff;
 }
 
+@media screen and (min-width: 576px) {
+	#top-nav span {		
+	font-size: 30px;
+	}
+}
+
 /* ------------- General Body ----------------- */
 body {	
 	background-color: rgb(249, 249, 249);
 }
 
 #main1 {
-	margin: 100px 30px auto;
+	margin: 80px 20px auto;
 }
 
 #main2 {
-	margin: auto 30px;
+	margin: auto 20px;
+	padding-top: 10px;
 }
 
 
@@ -118,9 +123,9 @@ body {
 	vertical-align: middle;
 }
 
-.home-ground,
 .home-ground iframe {
     margin: 20px auto;
+    min-height: 300px;
 }
 
 .club-info .panel-heading h3 {
@@ -136,6 +141,11 @@ body {
 	.club-banner {
 		max-width: 650px;
 	}
+
+	.home-ground iframe {
+    	height: 300px;
+    	width: 400px;
+	}
 }
 
 
@@ -144,8 +154,25 @@ body {
 	padding: 20px;
 }
 
+.info-page figure {
+	margin-top: 80px;
+}
+
 .info-page #main1 {
 	margin: auto 30px auto;
+}
+
+.info-page #main1 .active > a {
+	background-color: #ce1126;
+}
+
+.info-page #main1 .nav-pills {
+	background-color: rgb(249, 249, 249);
+}
+
+.affix {
+	top: 95px;
+    width: 100%;
 }
 
 
@@ -157,11 +184,6 @@ footer {
 	text-align: right;
 	z-index: 3;
 	padding: 5px;
-}
-
-.info-page footer {
-	position: absolute;	
-	bottom: 0;
 }
 
 footer div {	

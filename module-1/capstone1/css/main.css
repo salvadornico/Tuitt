@@ -154,11 +154,13 @@ body {
 	padding: 20px;
 }
 
-.info-page figure {
+.info-page figure,
+.fixtures figure {
 	margin-top: 80px;
 }
 
-.info-page #main1 {
+.info-page #main1,
+.fixtures #main1 {
 	margin: auto 30px auto;
 }
 
@@ -173,6 +175,19 @@ body {
 .affix {
 	top: 95px;
     width: 100%;
+}
+
+/*------------ More Info page ------------*/
+.fixtures {
+	text-align: center;
+}
+
+.fixtures h1 {
+	margin-bottom: 40px;
+}
+
+.fixtures .match-tables img {
+	width: 30px;
 }
 
 

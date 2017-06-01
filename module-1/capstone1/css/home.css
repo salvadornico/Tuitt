@@ -12,7 +12,8 @@
 }
 
 .nav-pills > li.active > a,
-.nav-pills > li.active > a:visited {
+.nav-pills > li.active > a:visited,
+.nav-pills > a:hover {
 	background-color: #ce1126;
 }
 

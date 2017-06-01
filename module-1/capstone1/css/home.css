@@ -11,10 +11,10 @@
 	background-color: rgba(249, 249, 249, 0.9);
 }
 
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:visited,
-.nav-pills > a:hover,
-.nav-pills > a:active {
+#side-nav .nav-pills > li.active > a,
+#side-nav .nav-pills > li.active > a:visited,
+#side-nav .nav-pills > a:hover,
+#side-nav .nav-pills > a:active {
 	background-color: #ce1126;
 }
 

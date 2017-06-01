@@ -32,14 +32,14 @@
 
 @media screen and (min-width: 768px) {
 	#map {
-		float: right;
-		width: 80%;
-		margin-top: -40px;
+		width: 100%;
+		margin-top: 5%;
+        margin-bottom: 10%;
 	}
 
 	#side-nav {
 		float: left;
-		width: 20%;
+		width: 25%;
 		position: absolute;
   		left: 0;
   		top: 15%;
@@ -50,8 +50,14 @@
 	}
 }
 
-@media screen and (min-width: 768px) {
-	#side-nav {
+@media screen and (min-width: 992px) {
+    #map {
+        width: 80%;
+        margin-top: -5%;
+        margin-bottom: 0;
+    }
+    
+    #side-nav {
 		width: 30%;
 	}
 }

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<title>jQuery</title>
+
+		<script src="jquery-3.2.1.js"></script>
+
+	</head>
+
+	<body>
+
+		<button id="hide-btn">Hide All</button>
+		<button id="show-btn">Show All</button>
+		<button id="red-btn">Red All</button>
+		
+		<div id="container">
+			
+			<p id="text1" class="fade">
+				Spam
+			</p>
+
+			<p id="text2" class="fade">
+				Eggs
+			</p>
+
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+
+			<button id="fade-in-btn" style="display: none">Fade In</button>
+
+			<br><br>
+
+			<img src="dog.jpg" height="100" id="pic">
+
+			<h2>Hello World</h2>
+			<button id="hello-btn">Hello</button>
+			<button id="world-btn">World</button>
+
+			<br><br>
+
+			<input type="number" id="num1"></input>
+			<span id="operator"></span>
+			<input type="number" id="num2"></input>
+			=
+			<span id="sum-display"></span>
+
+			<br>
+
+			<button id="add-btn">Add</button>
+			<button id="sub-btn">Subtract</button>
+			<button id="mult-btn">Multiply</button>
+			<button id="div-btn">Divide</button>
+
+		</div>
+
+		<script type="text/javascript">
+
+			$('#show-btn').click(
+				function() {
+					$('#container').show()
+				}
+			)
+
+			$('#hide-btn').click(
+				function() {
+					$('#container').hide()
+				}
+			)
+
+			$('p').click(
+				function() {
+					$(this).html("Bacon ipsum dolor amet shankle bresaola rump chicken drumstick ball tip short loin tail prosciutto. Pastrami picanha chicken, bresaola biltong rump kielbasa shankle beef ribs. T-bone turducken cow beef ribs corned beef ham cupim rump brisket tail. Jerky cupim pancetta, pig shankle turducken fatback spare ribs strip steak filet mignon.")
+				}
+			)
+
+			$('p.fade').hover(
+				function() {
+					$(this).fadeOut("slow", function() {
+						$('#fade-in-btn').show()
+					})					
+				}
+			)
+
+			$('#fade-in-btn').click(
+				function() {
+					$(this).hide()
+					$('p').fadeIn("2000")
+				}
+			)
+
+			$('#red-btn').click(
+				function() {
+					$('p').css('color', "red")
+				}
+			)
+
+			$('#pic').hover(
+				function() {
+					$(this).attr({
+						'src': 'cookie-monster.gif',
+						'height': 200
+					})
+				}
+			)
+
+			$('#pic').click(
+				function() {
+					$(this).attr({
+						'src': 'dog.jpg',
+					})
+				}
+			)
+
+			$('#hello-btn').click(
+				function() {
+					$('h2').html("Hello")
+					$(this).hide()
+					$('#world-btn').show()
+				}
+			)
+
+			$('#world-btn').click(
+				function() {
+					$('h2').html("World")
+					$(this).hide()
+					$('#hello-btn').show()
+				}
+			)
+
+			$('#add-btn').click(
+				function() {
+					$('#operator').html("+")
+					$('#sum-display').html(
+						parseInt($('#num1').val()) + parseInt($('#num2').val())
+					)
+				}
+			)
+
+			$('#sub-btn').click(
+				function() {
+					$('#operator').html("-")
+					$('#sum-display').html(
+						parseInt($('#num1').val()) - parseInt($('#num2').val())
+					)
+				}
+			)
+
+			$('#mult-btn').click(
+				function() {
+					$('#operator').html("x")
+					$('#sum-display').html(
+						parseInt($('#num1').val()) * parseInt($('#num2').val())
+					)
+				}
+			)
+
+			$('#div-btn').click(
+				function() {
+					$('#operator').html("÷")
+					$('#sum-display').html(
+						parseInt($('#num1').val()) / parseInt($('#num2').val())
+					)
+				}
+			)
+
+		</script>
+
+	</body>
+
+</html>

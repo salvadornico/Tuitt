@@ -47,10 +47,10 @@
 						<th>Names 1</th>
 						<th>Names 2</th>
 					</tr>";
-			for ($i = 0; $i < min(sizeof($names1),sizeof($names2)); $i++) {
+			for ($i = 0; $i < max(sizeof($names1),sizeof($names2)); $i++) {
 				echo "<tr>";
-				echo "<td>".$names1[$i]."</td>";
-				echo "<td>".$names2[$i]."</td>";
+				if (isset($names1[$i])) {echo "<td>".$names1[$i]."</td>";};
+				if (isset($names2[$i])) {echo "<td>".$names2[$i]."</td>";};
 				echo "</tr>";
 			};
 			echo "</table>";

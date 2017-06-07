@@ -220,6 +220,17 @@
 
 			echo $days[$input%7];
 
+			echo "<br>";
+			echo "<br>";
+
+			$bool = true && false;
+			var_dump($bool);
+
+			echo "<br>";
+
+			$bool = true and false;
+			var_dump($bool);
+
 		?>
 
 	</body>

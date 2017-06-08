@@ -98,6 +98,8 @@ questions = [
 	['Fifth letter in commerce', 'E']
 ]
 
+reset()
+
 function reset() {
 	quizCounter = 0
 	quizScore = 0
@@ -108,9 +110,7 @@ function reset() {
 	quizReset.style.display = "none"	
 }
 
-reset()
-
-quizBtn.onclick = function() {
+function submit() {
 	quizInput.style.display = "inline"
 	quizBtn.innerHTML = "Submit"
 
@@ -145,5 +145,13 @@ quizBtn.onclick = function() {
 		quizReset.style.display = "inline"
 	}
 }
+
+quizBtn.addEventListener("click", submit)
+
+quizInput.addEventListener("keydown", function(e) {
+	if (e.keyCode === 13) {
+		submit()
+	}
+})
 
 quizReset.addEventListener("click", reset)

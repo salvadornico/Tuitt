@@ -25,6 +25,9 @@ var operation = ""
 var result = 0
 var isResult = false
 
+
+// ---------- Inputs ------------------
+
 function btnClick(num) {
 	if (isResult) {
 		clear()
@@ -94,31 +97,36 @@ btnClear.addEventListener("click", clear)
 
 // ---------- Operations ---------------
 
-btnPlus.onclick = function() {
+function btnOp(op, symbol) {
+	if (calcNum2 != "") {
+		calculate()
+		calcNum1 = result
+		calcNum2 = ""
+		calcDisplay1.innerHTML = calcNum1
+		calcDisplay2.innerHTML = ""
+	}
 	isFirstNum = false
-	operation = "add"
-	calcDisplayOp.innerHTML = " + "
+	operation = op
+	calcDisplayOp.innerHTML = " " + symbol + " "
+}
+
+btnPlus.onclick = function() {
+	btnOp("add", "+")
 }
 
 btnMinus.onclick = function() {
-	isFirstNum = false
-	operation = "subtract"
-	calcDisplayOp.innerHTML = " - "
+	btnOp("subtract", "-")
 }
 
 btnMult.onclick = function() {
-	isFirstNum = false
-	operation = "multiply"
-	calcDisplayOp.innerHTML = " x "
+	btnOp("multiply", "x")
 }
 
 btnDiv.onclick = function() {
-	isFirstNum = false
-	operation = "divide"
-	calcDisplayOp.innerHTML = " ÷ "
+	btnOp("divide", "÷")
 }
 
-btnEquals.onclick = function() {
+function calculate() {
 	num1 = parseInt(calcNum1)
 	num2 = parseInt(calcNum2)
 
@@ -139,9 +147,12 @@ btnEquals.onclick = function() {
 			clear()
 			calcDisplay1.innerHTML = "Something went wrong.."
 	}
+}
 
+btnEquals.onclick = function() {
+	calculate()
 	clear()
+	calcDisplay1.innerHTML = result
 	isResult = true
 	isFirstNum = true
-	calcDisplay1.innerHTML = result
 }

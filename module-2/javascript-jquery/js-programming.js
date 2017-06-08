@@ -41,7 +41,7 @@ var guessClue = document.getElementById('guessClue')
 
 var randNum = Math.floor((Math.random() * 100) + 1 )
 
-guessBtn.onclick = function() {
+function makeGuess() {
 	var guess = parseInt(guessField.value)
 
 	if (guess > randNum) {
@@ -52,12 +52,19 @@ guessBtn.onclick = function() {
 		guessTally.innerHTML += "Higher than " + guess + "<br>"
 	} else if (guess == randNum) {
 		guessClue.innerHTML = "Got it!"
-		guessTally.innerHTML += guess + " - BINGO!"
+		guessTally.innerHTML += guess + " - BINGO!<br>"
 	} else {
 		guessClue.innerHTML = "You didn't put anything.."
 	}
 }
 
+guessBtn.addEventListener("click",makeGuess)
+guessField.addEventListener("keydown", function(e) {
+	if (e.keyCode === 13) {
+		makeGuess()
+		guessField.value = ""
+	}
+})
 
 // -------------------- Loops -----------------------------
 

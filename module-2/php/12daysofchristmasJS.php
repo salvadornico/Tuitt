@@ -11,7 +11,7 @@
 
 	</head>
 
-	<body>
+	<body class="snow">
 
 		<h1>The Twelve Days of Christmas</h1>
 

@@ -1,0 +1,53 @@
+* {
+	font-family: 'Playfair Display', serif;				
+	color: #ffffff;
+	background: #A41826 url("xmas-star.gif") no-repeat fixed bottom right; 
+}
+
+body {
+	padding: 20px;
+}
+
+h1 {
+	font-family: 'Abril Fatface', cursive;
+	letter-spacing: 2px;
+}
+
+.dayOfXmas {
+	display: none;
+}
+
+#nextBtn {
+	background-color: green;
+	border: none;
+	font-size: 20px;
+}
+
+.hvr-icon-spin {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  padding-right: 2em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.hvr-icon-spin:before {
+  content: "\f021";
+  position: absolute;
+  right: 1em;
+  padding: 5px 1px;
+  font-family: FontAwesome;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.hvr-icon-spin:hover:before, .hvr-icon-spin:focus:before, .hvr-icon-spin:active:before {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}

@@ -77,10 +77,9 @@
 	function get_sign($date_arr) {
 		$mm = $date_arr[1]/1;
 		$dd = $date_arr[2];
-		$date_for_check = strval($mm) . strval($dd);
+		$date_for_check = intval(strval($mm) . strval($dd));
 
 		$zodiac = [
-			['Capricorn', 1222, 119],
 			['Aquarius', 120, 218],
 			['Pisces', 219, 320],
 			['Aries', 321, 419],
@@ -91,17 +90,89 @@
 			['Virgo', 823, 922],
 			['Libra', 923, 1022],
 			['Scorpio', 1023, 1121],
-			['Sagittarius', 1122, 1221]
+			['Sagittarius', 1122, 1221],
+			['Capricorn', 1222, 119]
 		];
 
-		for ($i = 0; $i < count($zodiac); $i++) { 
-			if (($zodiac[$i][1] <= $date_for_check) && ($zodiac[$i][2] >= $date_for_check)) {
-				return $zodiac[$i][0];
-			// TODO: Account for Capricorn
-			// } else {
-			// 	return $zodiac[0][0];
+		if (($date_for_check >= $zodiac[11][1]) || ($date_for_check <= $zodiac[11][2])) {
+			return $zodiac[11][0];
+		} else {
+			for ($i = 0; $i < (count($zodiac) - 1); $i++) { 
+				if (($zodiac[$i][1] <= $date_for_check) && ($zodiac[$i][2] >= $date_for_check)) {
+					return $zodiac[$i][0];
+				}
+			}			
+		}
+
+	}
+
+	function get_chinese_sign($date_arr) {
+		$yyyy = $date_arr[0];
+
+		$chinese_zodiac = [
+			['Monkey', '猴'],
+			['Rooster', '雞'],
+			['Dog', '狗'],
+			['Pig', '豬'],
+			['Rat', '鼠'],
+			['Ox', '牛'],
+			['Tiger', '虎'],
+			['Rabbit', '兔'],
+			['Dragon', '龍'],
+			['Snake', '蛇'],
+			['Horse', '馬'],
+			['Goat', '羊']
+		];
+
+		$chinese_elements = [
+			['Metal', '金'],
+			['Metal', '金'],
+			['Water', '水'],
+			['Water', '水'],
+			['Wood', '木'],
+			['Wood', '木'],
+			['Fire', '火'],
+			['Fire', '火'],
+			['Earth', '土'],
+			['Earth', '土']
+		];
+
+		for ($i = 0; $i < count($chinese_elements); $i++) { 
+			if (($yyyy % 10) == $i) {
+				$element_en = $chinese_elements[$i][0];
+				$element_cn = $chinese_elements[$i][1];
 			}
 		}
+
+		for ($i = 0; $i < count($chinese_zodiac); $i++) { 
+			if (($yyyy % 12) == $i) {
+				$animal_en = $chinese_zodiac[$i][0];
+				$animal_cn = $chinese_zodiac[$i][1];
+			}
+		}
+
+		return $element_en . " " . $animal_en . " " . $element_cn . $animal_cn;
+	}
+
+	function create_form($name, $answers, $submit_message) {
+		echo "<form method='POST'><select name='";
+		echo $name;
+		echo "'><option selected='selected'>Choose one</option>";
+
+		for ($i = 0; $i < count($answers); $i++) { 
+			echo "<option value='";
+			echo $answers[$i][0];
+			echo "'>";
+			echo $answers[$i][1];
+			echo "</option>";
+		}
+
+		echo "</select>
+				<input type='submit' name='submit_";
+		echo $name;
+		echo "' value='";
+		echo $submit_message;
+		echo "'></form>";
 	}
 
 ?>

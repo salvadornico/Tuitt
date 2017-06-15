@@ -66,10 +66,57 @@
 				echo print_date($date_arr);
 				echo " is under ";
 				echo get_sign($date_arr);
-
+				echo " in the year of the ";
+				echo get_chinese_sign($date_arr);
 			}
 
 		?>
+
+		<hr>
+
+		<h1>World Capitals</h1>
+
+				
+		<?php
+
+			$countries = [
+				['Australia', 'Canberra'],
+				['Bangladesh', 'Dhaka'],
+				['Brunei', 'Bandar Seri Begawan'],
+				['Cambodia', 'Phnom Penh'],
+				['Canada', 'Ottawa'],
+				['China', 'Beijing'],
+				['India', 'New Delhi'],
+				['Indonesia', 'Jakarta'],
+				['Japan', 'Tokyo'],
+				['Laos', 'Vientiane'],
+				['Malaysia', 'Kuala Lumpur'],
+				['Mongolia', 'Ulaanbaatar'],
+				['Myanmar', 'Naypyidaw'],
+				['New Zealand', 'Wellington'],
+				['Papua New Guinea', 'Port Moresby'],
+				['Philippines', 'Manila'],
+				['Russia', 'Moscow'],
+				['Singapore', 'Singapore'],
+				['South Korea', 'Seoul'],
+				['Thailand', 'Bangkok'],
+				['Timor-Leste', 'Dili'],
+				['United States', 'Washington DC'],
+				['Vietnam', 'Hanoi'],
+			];
+
+			create_form('state', $countries, 'Where is that??');
+
+			if (isset($_POST['submit_state'])) {
+				$state = $_POST['state'];
+				if ($state == "Choose one") {
+					echo "You didn't choose a country";
+				} else {
+					echo "That's the capital of $state.";
+				}
+			} 
+
+		?>		
 
 	</body>
 

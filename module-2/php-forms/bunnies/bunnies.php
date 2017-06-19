@@ -1,36 +1,45 @@
 <?php 
 
+	// Set to apply active Bootstrap class to nav link
 	$active_page = "Breeds";
-	require_once "bunny-template.php"; 
+	require_once "res/bunny-template.php";
 
 ?>
 
-<form method="POST">
-	<select name="category">
-		<option value="all">All</option>
+<!-- container for display controls -->
+<div class="clearfix" id="bunny-display-controls">
 
-		<?php
-		
-			$categories = array_unique(array_column($bunnies, 'category'));
+	<form method="POST" class="form-group clearfix">
 
-			foreach ($categories as $category) {
-				if (isset($_POST['category']) && $_POST['category'] == $category) {
-					print_category($category, true);
-				} else {
-					print_category($category, false);
+		<select name="category" class="form-control">
+
+			<option value="all">All</option>
+
+			<?php
+
+				$categories = array_unique(array_column($bunnies, 'category'));
+
+				foreach ($categories as $category) {
+					if (isset($_POST['category']) && ($_POST['category'] == $category)) {
+						print_category($category, true);
+					} else {
+						print_category($category, false);
+					}
 				}
-			}
 
-		?>
+			?>
 
-	</select>
-	<input type="submit" name="submit_category" value="Filter">
-</form>
+		</select>
+				
+		<input type="submit" class="btn btn-primary" name="submit_category" value="Filter">
 
-<?php
+	</form>
+</div> <!-- /container for display controls -->
 
-	print_all_bunnies($bunnies);
+<?php 
+
+	print_all_bunnies($bunnies); 
 
 ?>
 
-<?php require_once "footer.php"; ?>
+<?php require_once "res/footer.php"; ?>

@@ -8,7 +8,7 @@ body {
 }
 
 .jumbotron {
-	background-image: url(images/banner.jpg);
+	background-image: url(../images/banner.jpg);
 	background-size: 100% auto;
 	background-position: center;
 	margin-bottom: 0;
@@ -71,7 +71,32 @@ body {
 	margin-bottom: 20px;
 }
 
+#bunny-display-controls {
+	position: relative;
+	left: 42%;
+	margin-bottom: 20px;
+}
+
+#bunny-display-controls > button,
+#bunny-display-controls > form {
+	float: left;
+	display: inline-block;
+	margin: auto 10px;
+}
+
+#bunny-display-controls > form > select,
+#bunny-display-controls > form > input {
+	float: left;
+	display: inline-block;
+}
+
+#bunny-display-controls > form > select {
+	width: 150px;
+	margin-right: 5px;
+}
+
 .bunny-box {
+	height: 250px;
 	margin: 10px;
 	background-color: #ffffff;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -79,15 +104,12 @@ body {
 	position: relative;
 }
 
-.bunny-box:after {
-	content: "";
-	display: block;
-	clear: both;
-}
-
 .bunny-box img {
 	float: left;
 	margin: 10px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-55%);
 }
 
 .bunny-box div {
@@ -121,6 +143,7 @@ footer {
 
 footer img {
 	height: 40px;
+	margin: auto 5px auto 10px;
 }
 
 footer span {

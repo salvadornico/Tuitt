@@ -145,5 +145,12 @@
         "description": "This breed was created in the late 1990s by Devie D'Anniballe by mixing the Mini rex, Mini Lop, and Holland Lop. The fur is like that of a rex, the appearance between that of a small Mini Lop and Holland Lop.",
         "img": "mini_plush_lop.jpg",
         "category": "America"
+    },
+    {
+        "name": "American Chinchilla",
+        "weight": "9 - 12 pounds",
+        "description": "Medium length body with well rounded hindquarters. Base of each hair is slate blue. intermediate band is pearl, top band is black. Ears are long and upright.",
+        "category": "America",
+        "img": "american_chinchilla.jpg"
     }
 ]

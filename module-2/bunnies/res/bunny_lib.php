@@ -60,16 +60,6 @@
 		}
 	}
 
-	function print_category($category, $is_selected) {
-		echo "<option ";
-		if ($is_selected == true) { echo "selected "; }
-		echo "value='";
-		echo $category;
-		echo "'>";
-		echo $category;
-		echo "</option>";
-	}
-
 
 	// Displaying bunnies
 	function print_all_bunnies() {

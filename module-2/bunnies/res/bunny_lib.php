@@ -159,7 +159,6 @@
 		$confirm_password = $_POST['confirm_password'];
 
 		if ($password == $confirm_password && $username != '') {
-			// Encryption function
 			$password = sha1($password);
 
 			$sql = "INSERT INTO users (username, password, role)
@@ -181,7 +180,6 @@
 		$confirm_password = $_POST['confirm_password'];
 		
 		if ($new_password == $confirm_password && $username != '') {
-			// Encryption function
 			$new_password = sha1($new_password);
 
 			$sql = "UPDATE users SET password = '$new_password' WHERE username = '$username'";

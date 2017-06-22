@@ -15,19 +15,7 @@
 
 			<option value="all">All</option>
 
-			<?php
-
-				$categories = array_unique(array_column($bunnies, 'category'));
-
-				foreach ($categories as $category) {
-					if (isset($_POST['category']) && ($_POST['category'] == $category)) {
-						print_category($category, true);
-					} else {
-						print_category($category, false);
-					}
-				}
-
-			?>
+			<?php print_categories(); ?>
 
 		</select>
 				
@@ -36,10 +24,6 @@
 	</form>
 </div> <!-- /container for display controls -->
 
-<?php 
-
-	print_all_bunnies($bunnies); 
-
-?>
+<?php print_all_bunnies(); ?>
 
 <?php require_once "res/footer.php"; ?>

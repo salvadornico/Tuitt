@@ -12,9 +12,9 @@
 
 <?php
 
-	$current_bunny = $_GET['id'];
+	$current_bunny_id = $_GET['id'];
 
-	print_single_bunny($bunnies[$current_bunny]);
+	print_single_bunny($current_bunny_id);
 
 	if(isset($_SESSION['user'])) {
 		echo '<button class="btn" data-toggle="modal" data-target="#editBunnyModal">
@@ -29,26 +29,25 @@
 		$category = $_POST['category'];
 		$img = $_POST['img'];
 
+		$sql = "";
 		if ($name) {
-			$bunnies[$current_bunny]['name'] = $name;
+			// Append SQL query to $sql
+			$sql .= "UPDATE bunnydetails SET name = '$name' WHERE id = $current_bunny_id;";
 		}
 		if ($weight) {
-			$bunnies[$current_bunny]['weight'] = $weight;
+			$sql .= "UPDATE bunnydetails SET weight = '$weight' WHERE id = $current_bunny_id;";
 		}
 		if ($description) {
-			$bunnies[$current_bunny]['description'] = $description;
+			$sql .= "UPDATE bunnydetails SET description = '$description' WHERE id = $current_bunny_id;";
 		}
 		if ($category) {
-			$bunnies[$current_bunny]['category'] = $category;
+			$sql .= "UPDATE bunnydetails SET category = '$category' WHERE id = $current_bunny_id;";
 		}
 		if ($img) {
-			$bunnies[$current_bunny]['img'] = $img;
+			$sql .= "UPDATE bunnydetails SET img = '$img' WHERE id = $current_bunny_id;";
 		}
 
-
-		$fp = fopen('res/bunnies.json', 'w');
-		fwrite($fp, json_encode($bunnies, JSON_PRETTY_PRINT));
-		fclose($fp);
+		mysqli_multi_query($conn, $sql);
 	}
 
 ?>
@@ -71,26 +70,26 @@
 	      			<div class="form-group">
 						<label class="control-label col-md-4" for="name">Name:</label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" name="name" id="name" value="<?php echo $bunnies[$current_bunny]['name']; ?>">
+							<input type="text" class="form-control" name="name" id="name" value="<?php echo $current_name; ?>">
 						</div>
 					</div>
 
 	      			<div class="form-group">
 						<label class="control-label col-md-4" for="weight">Weight:</label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" name="weight" id="weight" value="<?php echo $bunnies[$current_bunny]['weight']; ?>">
+							<input type="text" class="form-control" name="weight" id="weight" value="<?php echo $current_weight; ?>">
 						</div>
 					</div>
 
 					<div class="form-group">
 							<label for="description">Description:</label>
-							<textarea class="form-control" rows="5" name="description" id="description"><?php echo $bunnies[$current_bunny]['description']; ?></textarea>
+							<textarea class="form-control" rows="5" name="description" id="description"><?php echo $current_description; ?></textarea>
 					</div>
 
 					<div class="form-group">
 						<label class="control-label col-md-4" for="category">Region:</label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" name="category" id="category" value="<?php echo $bunnies[$current_bunny]['category']; ?>">
+							<input type="text" class="form-control" name="category" id="category" value="<?php echo $current_category; ?>">
 						</div>
 					</div>
 

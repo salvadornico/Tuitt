@@ -82,7 +82,7 @@
 										<div class="col-md-6">
 	  										<input type="text" class="form-control username_field" name="username" id="username" placeholder="Enter username">
 										</div>
-										</div>
+									</div>
 
 					      			<div class="form-group">
 										<label class="control-label col-md-4" for="password">Password:</label>
@@ -90,20 +90,21 @@
 	  										<input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
 										</div>
 										<div class="col-md-2 password_warning"></div>
-										</div>
+									</div>
 
-										<div class="form-group">
+									<div class="form-group">
 										<label class="control-label col-md-4" for="confirm_password">Confirm password:</label>
 										<div class="col-md-6">
 	  										<input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm password">
 										</div>
 										<div class="col-md-2 confirm_password_warning"></div>
-										</div> 									
-										<div class="form-group"> 
+									</div> 			
+
+									<div class="form-group"> 
 										<div class="col-md-12">
 	  										<input type="submit" class="btn btn-primary disabled submit_button" name="register_user" value="Submit">
 										</div>
-										</div>
+									</div>
 
 					      		</form>
 

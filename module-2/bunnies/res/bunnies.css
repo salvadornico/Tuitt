@@ -2,9 +2,15 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
+html {
+  	position: relative;
+  	min-height: 100%;
+}
+
 body {
 	background-color: #94bcfc;
 	text-align: center;
+	margin-bottom: 50px;
 }
 
 .jumbotron {
@@ -144,8 +150,10 @@ body {
 }
 
 footer {
+	position: absolute;
+  	bottom: 0;
+  	width: 100%;
 	height: 50px;
-	width: 100vw;
 	background-color: #f8f8f8;
     border-color: #e7e7e7;
 }

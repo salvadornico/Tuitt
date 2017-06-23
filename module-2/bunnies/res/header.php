@@ -1,6 +1,6 @@
 <div class="jumbotron text-center">
 
-			<h1>Bunnies</h1>
+			<h1>Bunnies Bunnies Bunnies</h1>
 
 			<p>
 				<img src="images/emoji.png">
@@ -21,7 +21,7 @@
       				<?php
 
       					foreach ($nav_sections as $section) {
-      						print_nav($section[0], $section[1]);
+      						print_nav($section);
       					}
 
       				?>

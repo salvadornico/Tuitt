@@ -22,19 +22,19 @@
 		["Members Section", "members.php"]
 	];
 
-	function print_nav($title, $target) {
+	function print_nav($section) {
 		echo "<li";
 
 		// if active page, applies appropriate Bootstrap class
 		global $active_page;
-		if ($active_page == $title) {
+		if ($active_page == $section[0]) {
 			echo " class='active'";
 		}
 
 		echo "><a href='";
-		echo $target;
+		echo $section[1];
 		echo "''>";
-		echo $title;
+		echo $section[0];
 		echo "</a></li>";
 	}	
 
@@ -121,11 +121,11 @@
 
 	// Add new bunny
 	if (isset($_POST['add_bunny'])) {
-		$name = $_POST['name'];
-		$weight = $_POST['weight'];
-		$description = $_POST['description'];
-		$category = $_POST['category'];
-		$img = $_POST['img'];
+		$name = addslashes($_POST['name']);
+		$weight = addslashes($_POST['weight']);
+		$description = addslashes($_POST['description']);
+		$category = addslashes($_POST['category']);
+		$img = addslashes($_POST['img']);
 
 		$sql = "INSERT INTO bunnydetails (name, weight, description, category, img)
 					VALUES ('$name', '$weight', '$description', '$category', '$img')";
@@ -133,7 +133,7 @@
 		mysqli_query($conn, $sql);
 	}
 
-	// Edit bunny functionality is in single-bunny.php due to GET variable dependencies
+	// Edit and delete bunny functionalities are in single-bunny.php due to GET variable dependencies
 
 
 	// Login processing
@@ -149,6 +149,8 @@
 				$_SESSION['user'] = $username;
 				$_SESSION['role'] = $role;				
 			}
+		} else {
+			echo "Login not found.";
 		}
 	}
 

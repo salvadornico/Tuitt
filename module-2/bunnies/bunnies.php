@@ -26,4 +26,8 @@
 
 <?php print_all_bunnies(); ?>
 
+<span class="attribution">
+	Initial rabbit breeds information and images from <a href="http://www.rabbitbreeds.org">rabbitbreeds.org</a>
+</span>
+
 <?php require_once "res/footer.php"; ?>

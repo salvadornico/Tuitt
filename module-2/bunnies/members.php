@@ -74,7 +74,7 @@
 
 					<div class="form-group"> 
 						<div class="col-md-12">
-							<input type="submit" class="btn btn-primary" id="new_bunny_button" name="add_bunny" value="Submit">
+							<input type="submit" class="btn btn-success" id="new_bunny_button" name="add_bunny" value="Submit">
 						</div>
 					</div>
 
@@ -82,7 +82,7 @@
 	      	</div> <!-- /modal body -->
 
 	      	<div class="modal-footer">
-	        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        	<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 	      	</div>
 
 	    </div> <!-- /modal content -->

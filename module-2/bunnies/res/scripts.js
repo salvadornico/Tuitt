@@ -47,7 +47,6 @@ $("#old_password, #new_password").change(function(){
 })
 
 $(".username_field").change(function(){
-	//TODO: add check against existing database
 	if ($('.username_field').val() == "") $('.submit_button').addClass("disabled")
 	else $('.submit_button').removeClass("disabled")
 })

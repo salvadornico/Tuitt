@@ -48,9 +48,22 @@
 		}
 
 		mysqli_multi_query($conn, $sql);
+		echo '<META HTTP-EQUIV=REFRESH CONTENT="0; bunnies.php">';
+	}
+
+	// Delete bunny
+	if (isset($_POST['delete_bunny'])) {
+		$sql = "DELETE FROM bunnydetails WHERE id = $current_bunny_id";
+		mysqli_query($conn, $sql);
+		echo '<META HTTP-EQUIV=REFRESH CONTENT="0; bunnies.php">';
 	}
 
 ?>
+
+<br>
+<span class="attribution">
+	Initial rabbit breeds information and images from <a href="http://www.rabbitbreeds.org">rabbitbreeds.org</a>
+</span>
 
 <!-- Edit bunny modal -->
 <div id="editBunnyModal" class="modal fade" role="dialog">
@@ -101,20 +114,60 @@
 					</div>
 
 					<div class="form-group"> 
-						<div class="col-md-12">
-							<input type="submit" class="btn btn-primary" id="edit_bunny_button" name="edit_bunny" value="Submit">
+
+						<div class="col-md-offset-4 col-md-2">
+							<input type="submit" class="btn btn-success" id="edit_bunny_button" name="edit_bunny" value="Submit">
 						</div>
+
+						<div class="col-md-2">
+							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteBunnyModal">Delete</button>
+						</div>
+
 					</div>
 
 	      		</form>
 	      	</div> <!-- /modal body -->
 
 	      	<div class="modal-footer">
-	        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        	<button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
 	      	</div>
 
 	    </div> <!-- /modal content -->
 	</div> <!-- /modal dialog -->
 </div> <!-- /edit bunny modal -->
+
+<!-- Delete bunny modal -->
+<div id="deleteBunnyModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+
+	      	<div class="modal-header">
+	        	<h4 class="modal-title">Are You Sure?</h4>
+	      	</div>
+
+	      	<div class="modal-body">
+
+	        	<form method="POST" class="form-horizontal">
+
+					<div class="form-group"> 
+
+						<div class="col-md-offset-2 col-md-4">
+							<input type="submit" class="btn btn-danger btn-lg" id="delete_bunny_button" name="delete_bunny" value="Yes">
+						</div>
+
+						<div class="col-md-4">
+							<button type="button" class="btn btn-lg" data-dismiss="modal">No</button>
+						</div>
+
+					</div>
+
+	      		</form>
+
+	      	</div> <!-- /modal body -->
+	    </div> <!-- /modal content -->
+	</div> <!-- /modal dialog -->
+</div> <!-- /delete bunny modal -->
 
 <?php require_once "res/footer.php"; ?>

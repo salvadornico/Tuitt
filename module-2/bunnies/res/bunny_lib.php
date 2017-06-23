@@ -31,11 +31,10 @@
 			echo " class='active'";
 		}
 
-		echo "><a href='";
-		echo $section[1];
-		echo "''>";
-		echo $section[0];
-		echo "</a></li>";
+		echo "><a href='$section[1]'>
+					$section[0]
+				</a>
+			</li>";
 	}	
 
 
@@ -51,11 +50,7 @@
 				if (isset($_POST['category']) && ($_POST['category'] == $category)) { 
 						echo "selected ";
 					}
-				echo "value='";
-				echo $category;
-				echo "'>";
-				echo $category;
-				echo "</option>";
+				echo "value='$category'>$category</option>";
 			}
 		}
 	}
@@ -77,12 +72,18 @@
 					($_POST['category'] == 'all') || 
 					($_POST['category'] == $category)) {
 						// printing
-						echo "<div class='col-md-6'>";
-						echo "<a href='single_bunny.php?id=$id'>";
-						echo "<div class='bunny-box clearfix'><img src='images/$img' class='img-responsive'>";
-						echo "<div><h4>$name</h4>";
-						echo "<p>$description</p>";
-						echo "<span>$weight</span></div></div></a></div>";
+						echo "<div class='col-md-6'>
+								<a href='single_bunny.php?id=$id'>
+									<div class='bunny-box clearfix'>
+										<img src='images/$img' class='img-responsive'>
+										<div>
+											<h4>$name</h4>
+											<p>$description</p>
+											<span>$weight</span>
+										</div>
+									</div>
+								</a>
+							</div>";
 
 						// Alternates every other entry to close row with two cards each
 						$counter++;
@@ -102,10 +103,14 @@
 			while ($row = mysqli_fetch_assoc($result)) {
 				extract($row);
 
-				echo "<div class='bunny-box clearfix'><img src='images/$img' class='img-responsive'>";
-				echo "<div><h4>$name</h4>";
-				echo "<p>$description</p>";
-				echo "<span>$weight</span></div></div>";
+				echo "<div class='bunny-box clearfix'>
+						<img src='images/$img' class='img-responsive'>
+						<div>
+							<h4>$name</h4>
+							<p>$description</p>
+							<span>$weight</span>
+						</div>
+					</div>";
 
 				global $current_name;
 				$current_name = $name;

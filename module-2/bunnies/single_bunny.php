@@ -18,7 +18,8 @@
 
 	if(isset($_SESSION['user'])) {
 		echo '<button class="btn" data-toggle="modal" data-target="#editBunnyModal">
-				<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Edit Info</button>';
+				<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Edit Info
+			</button>';
 	}
 
 	// Edit bunny

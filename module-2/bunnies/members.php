@@ -17,8 +17,16 @@
 	} else {
 		echo "<p>Welcome, ";
 		echo $_SESSION['user'] . "</p>";
-		echo '<p><button class="btn btn-success" data-toggle="modal" data-target="#newBunnyModal"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add new bunny</button></p>';
-		echo '<p><button class="btn btn-info" data-toggle="modal" data-target="#editUserModal"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;Account Settings</button></p>';
+		echo '<p>
+				<button class="btn btn-success" data-toggle="modal" data-target="#newBunnyModal">
+					<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add new bunny
+				</button>
+			</p>';
+		echo '<p>
+				<button class="btn btn-info" data-toggle="modal" data-target="#editUserModal">
+					<span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;Account Settings
+				</button>
+			</p>';
 
 	}
 

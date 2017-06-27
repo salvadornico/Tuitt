@@ -16,6 +16,10 @@
 
 	print_single_bunny($current_bunny_id);
 
+	// Add to cart button
+	echo "<a href='cart.php?id=$current_bunny_id'>Add to Cart</a>";
+
+	// Edit button
 	if(isset($_SESSION['user'])) {
 		echo '<button class="btn" data-toggle="modal" data-target="#editBunnyModal">
 				<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Edit Info

@@ -1,13 +1,22 @@
 <!-- article_list.blade.php -->
 @extends('applayout')
 
+@section('title')
+	{{ $title }}
+@endsection
+
 @section('main_content')
 
-	<h3>List of Articles</h3>
+	<h1>{{ $title }}</h1>
 
 	<ul>
-		<li>{{ $article1 }}</li>
-		<li>{{ $article2 }}</li>
+
+		@foreach($all_articles as $article)
+			<li>
+				<a href="{{url( "articles/$article->id" )}}">{{ $article->title }}</a>
+			</li>
+		@endforeach
+
 	</ul>
 
 @endsection

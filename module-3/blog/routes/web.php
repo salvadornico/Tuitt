@@ -20,8 +20,5 @@ Route::get('/hello', function () {
 	return "Hello World!";
 });
 
-Route::get('/articles', function () {
-	$article1 = "Tutorial";
-	$article2 = "Getting started";
-	return view('articles.article_list', compact('article1', 'article2'));
-});
+Route::get('/articles', 'ArticlesController@showArticles');
+Route::get('/articles/{id}', 'ArticlesController@show');

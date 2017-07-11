@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Sample</title>
+		<title>@yield("title")</title>
 	</head>
 	<body>
 
-		<h1>Heading</h1>
+		<h2>Heading</h2>
 		<nav>
 			<ul>
 				<li>Link 1</li>
@@ -14,7 +14,6 @@
 		</nav>
 
 		<main>
-			<h2>Content goes here</h2>
 			@yield("main_content")
 		</main>
 

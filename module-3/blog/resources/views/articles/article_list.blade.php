@@ -13,10 +13,14 @@
 
 		@foreach($all_articles as $article)
 			<li>
-				<a href="{{url( "articles/$article->id" )}}">{{ $article->title }}</a>
+				<a href="{{url("articles/$article->id")}}">{{ $article->title }}</a>
 			</li>
 		@endforeach
 
 	</ul>
+
+	<h2>
+		<a href="{{url("articles/create")}}">Create a new article</a>
+	</h2>
 
 @endsection

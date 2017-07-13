@@ -10,4 +10,6 @@
 	<h1>{{ $article->title }}</h1>
 	<p>{{ $article->content }}</p>
 
+	<a href="{{url("articles/$article->id/delete")}}">Delete</a>
+
 @endsection

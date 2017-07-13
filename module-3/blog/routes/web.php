@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 
@@ -21,4 +21,7 @@ Route::get('/hello', function () {
 });
 
 Route::get('/articles', 'ArticlesController@showArticles');
+Route::get('/articles/create', 'ArticlesController@create');
 Route::get('/articles/{id}', 'ArticlesController@show');
+Route::post('/articles/create', 'ArticlesController@store');
+Route::get('/articles/{id}/delete', 'ArticlesController@delete');

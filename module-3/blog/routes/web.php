@@ -11,17 +11,24 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
 	return view('welcome');
 });
 
 
-Route::get('/hello', function () {
+Route::get('/hello', function() {
 	return "Hello World!";
 });
 
 Route::get('/articles', 'ArticlesController@showArticles');
+
 Route::get('/articles/create', 'ArticlesController@create');
-Route::get('/articles/{id}', 'ArticlesController@show');
 Route::post('/articles/create', 'ArticlesController@store');
+
+Route::get('/articles/{id}', 'ArticlesController@show');
+Route::post('/articles/{id}', 'CommentController@saveComment');
+
 Route::get('/articles/{id}/delete', 'ArticlesController@delete');
+
+Route::get('/articles/{id}/edit', 'ArticlesController@edit');
+Route::post('/articles/{id}/edit', 'ArticlesController@saveEdit');

@@ -1,7 +1,7 @@
 @extends('layouts/applayout')
 
 @section('title')
-	Create New Article
+	EDIT - {{ $article->title }}
 @endsection
 
 @section('main_content')
@@ -14,11 +14,14 @@
 
 		<form action="" method="POST">
 			{{ csrf_field() }}
-			Title: <input type="text" name="title">
+			Title: 
+			<input type="text" name="title" value="{{ $article->title }}">
+
 			<br>
+
 			Content:
 			<br>
-			<textarea name="content"></textarea>
+			<textarea name="content">{{ $article->content }}</textarea>
 			<br>
 			<input type="submit" class="btn green"></input>
 		</form>

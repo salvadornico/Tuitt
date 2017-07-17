@@ -1,5 +1,5 @@
 <!-- article_list.blade.php -->
-@extends('applayout')
+@extends('layouts/applayout')
 
 @section('title')
 	{{ $article->title }}
@@ -7,9 +7,32 @@
 
 @section('main_content')
 
-	<h1>{{ $article->title }}</h1>
-	<p>{{ $article->content }}</p>
+	<div class="container">
 
-	<a href="{{url("articles/$article->id/delete")}}">Delete</a>
+		<h1>{{ $article->title }}</h1>
+		<p>{{ $article->content }}</p>
+
+		<h5>Comments</h5>
+		<ul class="browser-default">
+			@foreach($article->comments as $comment)
+				<li>
+					{{ $comment->content }}
+					<span class="grey-text text-lighten-1">
+						({{ $comment->updated_at }})
+					</span>
+				</li>
+			@endforeach
+		</ul>
+
+		<form action="" method="POST">
+			{{ csrf_field() }}
+			Comment:
+			<br>
+			<textarea name="content"></textarea>
+			<br>
+			<input type="submit" class="btn blue"></input>
+		</form>
+		
+	</div>
 
 @endsection

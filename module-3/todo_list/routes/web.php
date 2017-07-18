@@ -12,12 +12,22 @@
 */
 
 Route::get('/', 'TaskController@showTasks');
-Route::post('/', 'TaskController@addTask');
 
-Route::get('/delete/{id}', 'TaskController@delete');
+Auth::routes();
 
-Route::get('/mark-done/{id}', 'TaskController@markDone');
-Route::get('/mark-undone/{id}', 'TaskController@markUndone');
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/edit/{id}', 'TaskController@edit');
-Route::post('/edit/{id}', 'TaskController@saveEdit');
+Route::group(['middleware' => 'auth'], function() {
+	Route::post('/', 'TaskController@addTask');
+
+	Route::get('/mark-done/{id}', 'TaskController@markDone');
+
+	Route::get('/edit/{id}', 'TaskController@edit');
+	Route::post('/edit/{id}', 'TaskController@saveEdit');
+});
+
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function() {
+	// Admin functions here
+	Route::get('/delete/{id}', 'TaskController@delete');
+	Route::get('/mark-undone/{id}', 'TaskController@markUndone');
+});

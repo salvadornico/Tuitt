@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Task;
+use Auth;
 
 class TaskController extends Controller
 {
@@ -15,12 +16,20 @@ class TaskController extends Controller
 	}
 
 	function addTask(Request $request) {
+		$name = $request->name;
+		$description = $request->description;
+
+		$rules = array(
+			"name" => "required",
+			"description" => "required"
+		);
+		$this->validate($request, $rules);
+
 		$new_task = new Task();
-		$new_task->name = $request->name;
-		$new_task->description = $request->description;
+		$new_task->name = $name;
+		$new_task->description = $description;
 		$new_task->done = 0;
 		$new_task->save();
-
 		return back();
 	}
 
@@ -50,6 +59,6 @@ class TaskController extends Controller
 		$task->name = $request->name;
 		$task->description = $request->description;
 		$task->save();
-		return redirect("/");;
+		return redirect("/");
 	}
 }

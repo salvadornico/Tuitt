@@ -14,11 +14,11 @@
 				</div>
 				<div class="row">
 					<div class="input-field col s12 m3 offset-m1">
-						<input id="name" name="name" type="text" value="{{ $task->name }}">
+						<input id="name" name="name" type="text" value="{{ $task->name }}" required>
 						<label class="active" for="name">Task Name</label>
 					</div>
 					<div class="input-field col s12 m7">
-						<input id="description" name="description" type="text" value="{{ $task->description }}">
+						<input id="description" name="description" type="text" value="{{ $task->description }}" required>
 						<label class="active" for="description">Task Description</label>
 					</div>
 				</div>

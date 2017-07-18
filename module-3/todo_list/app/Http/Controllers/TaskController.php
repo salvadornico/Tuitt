@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Task;
 use Auth;
+use Session;
 
 class TaskController extends Controller
 {
     function showTasks() {
-		$pending_tasks = DB::table('tasks')->where('done', 0)->get();
-		$completed_tasks = DB::table('tasks')->where('done', 1)->get();
+		$pending_tasks = DB::table('tasks')->where('done', 0)->latest()->get();
+		$completed_tasks = DB::table('tasks')->where('done', 1)->latest()->get();
 		return view("todo_list", compact("pending_tasks", "completed_tasks"));
 	}
 
@@ -30,12 +31,15 @@ class TaskController extends Controller
 		$new_task->description = $description;
 		$new_task->done = 0;
 		$new_task->save();
+
+		$request->session()->flash('message', 'Task added!');
 		return back();
 	}
 
 	function delete($id) {
 		$task = Task::find($id);
 		$task->delete();
+		Session::flash("message", "Task deleted");
 		return back();
 	}
 
@@ -59,6 +63,7 @@ class TaskController extends Controller
 		$task->name = $request->name;
 		$task->description = $request->description;
 		$task->save();
+		$request->session()->flash('message', 'Task edited!');
 		return redirect("/");
 	}
 }

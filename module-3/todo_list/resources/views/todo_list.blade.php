@@ -4,7 +4,12 @@
 			
 	<div class="container">
 
-		
+		@if(Session::has("message"))
+			<script type="text/javascript">
+				Materialize.toast('{{ Session::get("message") }}', 3000)
+			</script>
+		@endif
+
 		@if(Auth::user())
 
 			<form method="POST" class="card z-depth-3">
@@ -27,14 +32,14 @@
 					</div>
 					<div class="row">
 						<div class="col s11 right-align">
-							<button class="btn-floating btn-large lime accent-4 waves-dark" type="submit">
+							<button id="addBtn" class="btn-floating btn-large lime accent-4 waves-dark" type="submit">
 								<i class="material-icons">add</i>
 							</button>
 						</div>
 					</div>						
 				</div>
 			</form>
-			
+
 		@endif
 
 		<div class="row">
@@ -104,9 +109,6 @@
 									<div class="card-action">
 										<a href="{{ url("mark-undone/$task->id") }}" class="grey-text text-darken-2 tooltipped" data-position="top" data-delay="50" data-tooltip="Mark as undone">
 											<i class="material-icons">replay</i>
-										</a>
-										<a href="{{ url("delete/$task->id") }}" class="red-text tooltipped" data-position="top" data-delay="50" data-tooltip="Delete">
-											<i class="material-icons">delete</i>
 										</a>
 									</div>
 								@endif

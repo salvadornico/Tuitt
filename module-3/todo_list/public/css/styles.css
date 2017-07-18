@@ -8,6 +8,19 @@ main {
 	flex: 1 0 auto;
 }
 
-.task-name {
-	font-weight: bold;
+.input-field input[type=text]:not(.browser-default):focus + label {
+	color: #00695c;
+}
+
+.input-field input[type=text]:not(.browser-default):focus {
+	border-bottom: 1px solid #00695c;
+	box-shadow: 0 1px 0 0 #00695c;
+}
+
+.card .card-title {
+	font-weight: 400;
+}
+
+ul .card.small {
+	height: 250px;
 }

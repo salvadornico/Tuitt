@@ -15,5 +15,9 @@ Route::get('/', 'TaskController@showTasks');
 Route::post('/', 'TaskController@addTask');
 
 Route::get('/delete/{id}', 'TaskController@delete');
+
 Route::get('/mark-done/{id}', 'TaskController@markDone');
 Route::get('/mark-undone/{id}', 'TaskController@markUndone');
+
+Route::get('/edit/{id}', 'TaskController@edit');
+Route::post('/edit/{id}', 'TaskController@saveEdit');

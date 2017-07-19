@@ -36,7 +36,9 @@ class FriendController extends Controller
 		$user = User::find($id);
 		$current_login_id = Auth::user()->id;
 
-		$isFriend = count(DB::select("SELECT * FROM friend_requests AS f WHERE (f.from = ? OR f.from = ?) AND (f.to = ? OR f.to = ?)", [$id, $current_login_id, $id, $current_login_id]));
+		$isFriend = FriendRequest::where([['from', $id], ['to', $current_login_id]])
+			->orWhere([['from', $current_login_id], ['to', $id]])
+			->count();
 
 		return view("user", compact("user", "isFriend"));
 	}
@@ -66,7 +68,7 @@ class FriendController extends Controller
 
 		Session::flash("message", "Request accepted!");
 
-		return redirect("/");		
+		return redirect("/");
 	}
 
 	function denyFriend($id) {
@@ -78,12 +80,14 @@ class FriendController extends Controller
 
 		Session::flash("message", "Request denied");
 
-		return redirect("/");		
+		return redirect("/");
 	}
 
 	function test($id) {
 		$current_login_id = Auth::user()->id;
-		$friend_request = DB::select("SELECT * FROM friend_requests AS f WHERE (f.from = ? OR f.from = ?) AND (f.to = ? OR f.to = ?)", [$id, $current_login_id, $id, $current_login_id]);
+		$friend_request = FriendRequest::where([['from', $id], ['to', $current_login_id]])
+			->orWhere([['from', $current_login_id], ['to', $id]])
+			->count();
 		dd($friend_request);
 	}
 }

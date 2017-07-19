@@ -1,0 +1,51 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+a.brand-logo {
+	font-family: 'Passion One', cursive;
+	letter-spacing: 2px;
+}
+
+.user-list .card {
+	height: 200px;
+	margin: 20px auto;
+	display: block;
+}
+
+.card-title {
+	text-shadow: 1px 1px 2px black;
+}
+
+.request-label {
+	font-weight: bold;
+}
+
+a.request-button {
+	margin: auto 5px;
+}
+
+#profile {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px;
+}
+
+#profile-row {
+	position: relative;
+	height: 60vh;
+}

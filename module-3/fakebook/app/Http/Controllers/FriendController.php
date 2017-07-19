@@ -15,16 +15,15 @@ class FriendController extends Controller
 		$current_login_id = Auth::user()->id;
 
 		$friends = DB::select("SELECT DISTINCT users.* FROM users JOIN friend_requests ON (users.id = friend_requests.from OR users.id = friend_requests.to) WHERE ((users.id != ?) AND (friend_requests.status = 'Accepted') AND (friend_requests.from = ? OR friend_requests.to = ?))", [$current_login_id, $current_login_id, $current_login_id]);
+
 		$not_friends = DB::select("SELECT * FROM users WHERE id NOT IN (SELECT DISTINCT users.id FROM users JOIN friend_requests ON (users.id = friend_requests.from OR users.id = friend_requests.to) WHERE ((friend_requests.status = 'Accepted') AND (friend_requests.from = ? OR friend_requests.to = ?)))", [$current_login_id, $current_login_id]);
 
-		$received_requests = DB::table('friend_requests')
-			->join('users', 'users.id', '=', 'friend_requests.from')
+		$received_requests = FriendRequest::join('users', 'users.id', '=', 'friend_requests.from')
 			->select('users.name', 'users.id')
 			->where('friend_requests.status', 'Pending')
 			->where('friend_requests.to', $current_login_id)
 			->get();
-		$sent_requests = DB::table('friend_requests')
-			->join('users', 'users.id', '=', 'friend_requests.to')
+		$sent_requests = FriendRequest::join('users', 'users.id', '=', 'friend_requests.to')
 			->select('users.name', 'users.id')
 			->where('friend_requests.status', 'Pending')
 			->where('friend_requests.from', $current_login_id)
@@ -37,12 +36,7 @@ class FriendController extends Controller
 		$user = User::find($id);
 		$current_login_id = Auth::user()->id;
 
-		$isFriend = count(DB::table('friend_requests')
-			->where('from', $id)
-			->orWhere('from', $current_login_id)
-			->where('to', $current_login_id)
-			->orWhere('to', $id)
-			->get());
+		$isFriend = count(DB::select("SELECT * FROM friend_requests AS f WHERE (f.from = ? OR f.from = ?) AND (f.to = ? OR f.to = ?)", [$id, $current_login_id, $id, $current_login_id]));
 
 		return view("user", compact("user", "isFriend"));
 	}
@@ -65,10 +59,10 @@ class FriendController extends Controller
 	function acceptFriend($id) {
 		$current_login_id = Auth::user()->id;
 
-		$friend_request = DB::table('friend_requests')
-			->where('from', $id)
-			->where('to', $current_login_id)
-			->update(['status' => "Accepted"]);
+		$friend_request = FriendRequest::where('from', $id)
+			->where('to', $current_login_id)->get();
+		$friend_request->status = "Accepted";
+		$friend_request->save();
 
 		Session::flash("message", "Request accepted!");
 
@@ -78,13 +72,18 @@ class FriendController extends Controller
 	function denyFriend($id) {
 		$current_login_id = Auth::user()->id;
 
-		$friend_request = DB::table('friend_requests')
-			->where('from', $id)
-			->where('to', $current_login_id)
-			->delete();
+		$friend_request = FriendRequest::where('from', $id)
+			->where('to', $current_login_id)->get();
+		$friend_request->delete();
 
 		Session::flash("message", "Request denied");
 
 		return redirect("/");		
+	}
+
+	function test($id) {
+		$current_login_id = Auth::user()->id;
+		$friend_request = DB::select("SELECT * FROM friend_requests AS f WHERE (f.from = ? OR f.from = ?) AND (f.to = ? OR f.to = ?)", [$id, $current_login_id, $id, $current_login_id]);
+		dd($friend_request);
 	}
 }

@@ -58,6 +58,8 @@
 
 		<div class="col s12 l2">
 
+			<h4>Hi {{Auth::user()->name}}!</h4>
+
 			<h5>Friend requests</h5>
 
 			<span class="request-label">Received</span>

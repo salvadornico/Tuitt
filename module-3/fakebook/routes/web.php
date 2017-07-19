@@ -19,6 +19,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('accept_request/{id}', 'FriendController@acceptFriend');
 	Route::get('deny_request/{id}', 'FriendController@denyFriend');
+
+	Route::get('test/{id}', 'FriendController@test');
 });
 
 

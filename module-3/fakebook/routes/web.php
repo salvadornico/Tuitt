@@ -15,12 +15,18 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/', 'FriendController@displayAll');
 	Route::get('/user/{id}', 'FriendController@displaySingleUser');
 
-	Route::get('user/{id}/add', 'FriendController@addFriendRequest');
+	Route::get('/user/{id}/add', 'FriendController@addFriendRequest');
 
-	Route::get('accept_request/{id}', 'FriendController@acceptFriend');
-	Route::get('deny_request/{id}', 'FriendController@denyFriend');
+	Route::get('/accept_request/{id}', 'FriendController@acceptFriend');
+	Route::get('/deny_request/{id}', 'FriendController@denyFriend');
 
-	Route::get('test/{id}', 'FriendController@test');
+	Route::get('/ajax', function() {
+		return view('ajax');
+	});
+	Route::post('getPendingRequests', function() {
+		$requests = Auth::user()->pendingSentRequests();
+		return view('ajax-content', compact('requests'));
+	});
 });
 
 

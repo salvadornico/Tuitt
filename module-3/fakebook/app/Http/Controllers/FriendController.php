@@ -12,82 +12,43 @@ use Session;
 class FriendController extends Controller
 {
 	function displayAll() {
-		$current_login_id = Auth::user()->id;
+		$friends = Auth::user()->friends();
+		$not_friends = User::all()
+			->diff(Auth::user()->friends())
+			->diff(Auth::user()->where('id', Auth::user()->id)->get());
 
-		$friends = DB::select("SELECT DISTINCT users.* FROM users JOIN friend_requests ON (users.id = friend_requests.from OR users.id = friend_requests.to) WHERE ((users.id != ?) AND (friend_requests.status = 'Accepted') AND (friend_requests.from = ? OR friend_requests.to = ?))", [$current_login_id, $current_login_id, $current_login_id]);
-
-		$not_friends = DB::select("SELECT * FROM users WHERE id NOT IN (SELECT DISTINCT users.id FROM users JOIN friend_requests ON (users.id = friend_requests.from OR users.id = friend_requests.to) WHERE ((friend_requests.status = 'Accepted') AND (friend_requests.from = ? OR friend_requests.to = ?)))", [$current_login_id, $current_login_id]);
-
-		$received_requests = FriendRequest::join('users', 'users.id', '=', 'friend_requests.from')
-			->select('users.name', 'users.id')
-			->where('friend_requests.status', 'Pending')
-			->where('friend_requests.to', $current_login_id)
-			->get();
-		$sent_requests = FriendRequest::join('users', 'users.id', '=', 'friend_requests.to')
-			->select('users.name', 'users.id')
-			->where('friend_requests.status', 'Pending')
-			->where('friend_requests.from', $current_login_id)
-			->get();
+		$received_requests = Auth::user()->pendingReceivedRequests();
+		$sent_requests = Auth::user()->pendingSentRequests();
 
 		return view("home", compact("friends", "not_friends", "received_requests", "sent_requests"));
 	}
 
 	function displaySingleUser($id) {
 		$user = User::find($id);
-		$current_login_id = Auth::user()->id;
-
-		$isFriend = FriendRequest::where([['from', $id], ['to', $current_login_id]])
-			->orWhere([['from', $current_login_id], ['to', $id]])
-			->count();
+		$isFriend = Auth::user()->isFriend($id);
 
 		return view("user", compact("user", "isFriend"));
 	}
 
 	function addFriendRequest($id) {
-		$new_friend = User::find($id)->id;
-		$current_login_id = Auth::user()->id;
-
-		$friend_request = new FriendRequest();
-		$friend_request->from = $current_login_id;
-		$friend_request->to = $new_friend;
-		$friend_request->status = "Pending";
-		$friend_request->save();
+		$user = User::find($id);
+		Auth::user()->addFriend($user);
 
 		Session::flash("message", "Request sent!");
-
 		return back();
 	}
 
 	function acceptFriend($id) {
-		$current_login_id = Auth::user()->id;
-
-		$friend_request = FriendRequest::where('from', $id)
-			->where('to', $current_login_id)->get();
-		$friend_request->status = "Accepted";
-		$friend_request->save();
+		Auth::user()->acceptRequest($id);
 
 		Session::flash("message", "Request accepted!");
-
 		return redirect("/");
 	}
 
 	function denyFriend($id) {
-		$current_login_id = Auth::user()->id;
-
-		$friend_request = FriendRequest::where('from', $id)
-			->where('to', $current_login_id)->get();
-		$friend_request->delete();
+		Auth::user()->declineRequest($id);
 
 		Session::flash("message", "Request denied");
-
 		return redirect("/");
-	}
-
-	function test($id) {
-		$current_login_id = Auth::user()->id;
-		$friend_request = FriendRequest::where([['from', $id], ['to', $current_login_id]])
-			->orWhere([['from', $current_login_id], ['to', $id]])
-			->count();
-		dd($friend_request);
 	}
 }

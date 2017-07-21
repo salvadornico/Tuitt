@@ -65,13 +65,11 @@
 					tagInput : tagInput,
 					blogId : blogId,
 				},
-				crossDomain: true,
 				success: function(data) {
-    				console.log("Success")
 					$("#tagBox").html(data)
 				},
 				error: function(response, data) {
-    				console.log("Error")
+    				console.log("Error found!")
     				console.log(response)
     				console.log(data)
 				},

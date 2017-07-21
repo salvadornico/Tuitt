@@ -16,17 +16,15 @@ class TagController extends Controller
 
     function addTag(Request $request, $id) {
         $passedTag = Tag::where("name", $request->tagInput);
-    	if ($passedTag->count()) {
-            dd($passedTag);
-    		$newTag = $passedTag->first();
-    	} else {
-	    	$newTag = new Tag();
-			$newTag->name = $request->tagInput;
-			$newTag->save();
-        }
-
 		$blog = Blog::find($request->blogId);
-		$blog->addTagToBlog($newTag);
+
+        if (!$passedTag->count()) {
+            $newTag = new Tag();
+            $newTag->name = $request->tagInput;
+            $newTag->save();
+
+    		$blog->addTagToBlog($newTag);
+        }
 
 		$blogTags = $blog->tags;
         $all_tags = Tag::all();

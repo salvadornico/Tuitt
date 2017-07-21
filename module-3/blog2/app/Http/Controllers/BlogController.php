@@ -16,8 +16,8 @@ class BlogController extends Controller
 
 	function displayOne($id) {
 		$blog = Blog::find($id);
-		$tags = $blog->tags()->get();
+		$blogTags = $blog->tags()->get();
 		$all_tags = Tag::all();
-		return view("single_blog", compact("blog", "tags", "all_tags"));
+		return view("single_blog", compact("blog", "blogTags", "all_tags"));
 	}
 }

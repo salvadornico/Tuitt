@@ -27,9 +27,11 @@ class TagController extends Controller
 		$blog = Blog::find($request->blogId);
 		$blog->addTagToBlog($newTag);
 
-		$tags = $blog->tags;
-		// return view("tags_list", compact("tags"));
-        return view("single_blog", compact("blog", "tags"));
+		$blogTags = $blog->tags;
+        $all_tags = Tag::all();
+
+		// return view("tags_list", compact("blogTags"));
+        return view("single_blog", compact("blog", "blogTags", "all_tags"));
 	}
 
 	function test() {

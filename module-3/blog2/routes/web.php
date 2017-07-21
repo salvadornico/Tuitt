@@ -16,7 +16,6 @@ Route::get("/blog/{id}", "BlogController@displayOne");
 
 Route::get("/tag/{id}", "TagController@displayTagArticles");
 
-// Route::post("addTag", "TagController@addTag");
-Route::post("/blog/{id}", "TagController@addTag");
+Route::post("/blog/{id}/addTag", "TagController@addTag");
 
 Route::get("test", "TagController@test");

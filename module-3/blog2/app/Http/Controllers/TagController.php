@@ -14,9 +14,10 @@ class TagController extends Controller
 		return view("single_tag", compact("tag", "blogs"));
     }
 
-    function addTag(Request $request) {
+    function addTag(Request $request, $id) {
         $passedTag = Tag::where("name", $request->tagInput);
     	if ($passedTag->count()) {
+            dd($passedTag);
     		$newTag = $passedTag->first();
     	} else {
 	    	$newTag = new Tag();
@@ -30,8 +31,7 @@ class TagController extends Controller
 		$blogTags = $blog->tags;
         $all_tags = Tag::all();
 
-		// return view("tags_list", compact("blogTags"));
-        return view("single_blog", compact("blog", "blogTags", "all_tags"));
+		return view("tags_list", compact("blogTags"));
 	}
 
 	function test() {
